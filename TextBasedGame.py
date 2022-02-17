@@ -41,6 +41,11 @@ item = ''
 while True:
     #player_status func
     player_status(place, inventory)
-    #item handling
-    #take player input
-    #change location with player input
+    #chck room for item and enage user on item collection logic
+    if 'Item' in rooms[place]:
+        item = rooms[place]['Item']
+        print("You see a"+item)
+
+        collect_item = input("Collect the item in this room? Yes/No\n")
+        if collect_item == 'Yes':
+            inventory.append(item)
