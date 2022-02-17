@@ -21,3 +21,8 @@ def instructions() :
         print("Maneuver the dungeonscape with these commands: North, South, East, and West.")
         print("To add items to your inventory: get 'item name'\n")
 
+while True:
+    #player_status func
+    #item handling
+    #take player input
+    #change location with player input
