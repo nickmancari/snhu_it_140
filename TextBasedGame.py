@@ -38,8 +38,8 @@ def villian_place(item_list):
 
 def player_status(place, inventory) :
 
-        print("You are in the "+place)
-        print(inventory)
+    print("You are in the "+place)
+    print(inventory)
 
     if place == 'Troll Lair':
         print("You're in the Troll's Lair! Ahhh!")
