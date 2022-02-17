@@ -21,13 +21,28 @@ def instructions() :
         print("Maneuver the dungeonscape with these commands: North, South, East, and West.")
         print("To add items to your inventory: get 'item name'\n")
 
-def player_status(place, inventory, item) :
+def villian_place(item_list):
+
+    damage_roll = randint(1, 10)
+
+    if 'Sword' in item_list:
+        if damage_roll >= 3:
+            print("You have defeated the troll!")
+        else:
+            print("You have fought and parished!\nBetter Luck Next Time!")
+            exit
+        
+    else:
+        print("You don't have a sword! Run away!")
+
+def player_status(place, inventory) :
 
         print("You are in the "+place)
         print(inventory)
 
-        if place == 'Troll Lair':
-            print("You're in the Troll's Lair! Ahhh!")
+    if place == 'Troll Lair':
+        print("You're in the Troll's Lair! Ahhh!")
+        villian_place(inventory)
 
 
 place = 'Entrance'
@@ -46,9 +61,9 @@ while True:
         if collect_item == 'Yes':
             inventory.append(item)
 
-        player_input = input("------------\nEnter your move:\n")
-        if player_input in rooms[place]:
-            place = rooms[place][player_input]
+    player_input = input("------------\nEnter your move:\n")
+    if player_input in rooms[place]:
+        place = rooms[place][player_input]
 
-        else:
-            print("Not a valid direction")
+    else:
+        print("Not a valid direction")
