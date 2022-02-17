@@ -25,21 +25,22 @@ def player_status(place, inventory, item) :
 
         print("You are in the "+place)
         print(inventory)
-        if item == '':
-            print("Room contains no item")
-        else:
-            print("You see a "+item)
+#        if item == '':
+#            print("Room contains no item")
+#        else:
+#            print("You see a "+item)
 
         if place == 'Troll Lair':
             print("You're in the Troll's Lair! Ahhh!")
 
 
 place = 'Entrance'
-inventory = [ ]
+inventory = list()
 item = ''
 
 while True:
     #player_status func
+    player_status(place, inventory)
     #item handling
     #take player input
     #change location with player input
