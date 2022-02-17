@@ -25,10 +25,6 @@ def player_status(place, inventory, item) :
 
         print("You are in the "+place)
         print(inventory)
-#        if item == '':
-#            print("Room contains no item")
-#        else:
-#            print("You see a "+item)
 
         if place == 'Troll Lair':
             print("You're in the Troll's Lair! Ahhh!")
