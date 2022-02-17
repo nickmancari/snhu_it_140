@@ -21,6 +21,23 @@ def instructions() :
         print("Maneuver the dungeonscape with these commands: North, South, East, and West.")
         print("To add items to your inventory: get 'item name'\n")
 
+def player_status(place, inventory, item) :
+
+        print("You are in the "+place)
+        print(inventory)
+        if item == '':
+            print("Room contains no item")
+        else:
+            print("You see a "+item)
+
+        if place == 'Troll Lair':
+            print("You're in the Troll's Lair! Ahhh!")
+
+
+place = 'Entrance'
+inventory = [ ]
+item = ''
+
 while True:
     #player_status func
     #item handling
