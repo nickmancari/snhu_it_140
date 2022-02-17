@@ -49,3 +49,10 @@ while True:
         collect_item = input("Collect the item in this room? Yes/No\n")
         if collect_item == 'Yes':
             inventory.append(item)
+
+        player_input = input("------------\nEnter your move:\n")
+        if player_input in rooms[place]:
+            place = rooms[place][player_input]
+
+        else:
+            print("Not a valid direction")
