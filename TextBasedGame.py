@@ -12,3 +12,12 @@ rooms = {
 
 }
 
+def instructions() :
+        print("\n----------------------------------------------")
+        print('{:^45s}'.format("~~~~DUNGEONS & TROLLS~~~~"))
+        print("----------------------------------------------\n")
+        print("Collect the 7 items to win the game.")
+        print("But Beware the Troll Lair. You have a better chance at slaying the troll if you have a SWORD!")
+        print("Maneuver the dungeonscape with these commands: North, South, East, and West.")
+        print("To add items to your inventory: get 'item name'\n")
+
