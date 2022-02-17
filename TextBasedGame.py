@@ -1,3 +1,4 @@
+from random import randint
 
 rooms = {
         'Entrance' : { 'East' : 'Dungeon Staircase' },
