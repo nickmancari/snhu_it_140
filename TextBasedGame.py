@@ -1,6 +1,11 @@
 # Nick Mancari 7-3 Project Two
 from random import randint
 
+RED = '\033[93m'
+GREEN = '\033[92m'
+NC = '\033[0m'
+BOLD = '\033[1m'
+
 #Dictionary for locations, movement, and items in rooms
 rooms = {
         'Entrance' : { 'East' : 'Dungeon Staircase' },
@@ -18,10 +23,10 @@ rooms = {
 #Game start instructions to educate the player on objectives and gameplay
 def instructions() :
         print("\n----------------------------------------------")
-        print('{:^45s}'.format("~~~~DUNGEONS & TROLLS~~~~"))
+        print('{:^45s}'.format(BOLD+"~~~~DUNGEONS & TROLLS~~~~"+NC))
         print("----------------------------------------------\n")
         print("Collect the 7 items or slay the troll to win the game.")
-        print("But Beware the Troll Lair. You have a better chance at slaying the troll if you have a SWORD!")
+        print("But Beware the Troll Lair. The angry Troll is fit to fight. You have a better chance at slaying the troll if you have a SWORD!")
         print("Maneuver the dungeonscape with these commands: North, South, East, and West.")
         print("To add items to your inventory: Answer the prompt Yes of No\n")
 
@@ -33,10 +38,10 @@ def villain_place(item_list):
     if 'Sword' in item_list:
         if damage_roll >= 3:
             print("\n**You have defeated the troll!**\n")
-            print("\nYOU WIN!\n")
+            print(GREEN+"\nYOU WIN!\n"+NC)
             exit()
         else:
-            print("You have fought and parished!\nBetter Luck Next Time!")
+            print(RED+"You have fought and parished!\nBetter Luck Next Time!"+NC)
             exit()
         
     else:
@@ -49,7 +54,7 @@ def player_status(place, inventory) :
     print("Inventory: {}".format(inventory))
 
     if place == 'Troll Lair':
-        print("~~~~~~~~~~~~~~~~~\nThe Troll is here!! Ahhh!\n~~~~~~~~~~~~~~~~~")
+        print(BOLD+"~~~~~~~~~~~~~~~~~\nThe Troll is here!! Ahhh!\n~~~~~~~~~~~~~~~~~"+NC)
         villain_place(inventory)
 
 
@@ -70,7 +75,7 @@ while True:
         if collect_item == 'Yes':
             inventory.append(item)
             if len(inventory) == 7:
-                print("\nYOU WIN!\n")
+                print(GREEN+"\nYOU WIN!\n"+NC)
                 exit()
             del rooms[place]['Item']
     #player movement logic
