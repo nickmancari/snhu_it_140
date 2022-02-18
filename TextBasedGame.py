@@ -45,7 +45,7 @@ def player_status(place, inventory) :
         print("You're in the Troll's Lair! Ahhh!")
         villian_place(inventory)
 
-
+instructions()
 place = 'Entrance'
 inventory = list()
 item = ''
