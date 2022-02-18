@@ -17,7 +17,7 @@ def instructions() :
         print("\n----------------------------------------------")
         print('{:^45s}'.format("~~~~DUNGEONS & TROLLS~~~~"))
         print("----------------------------------------------\n")
-        print("Collect the 7 items to win the game.")
+        print("Collect the 7 items or slay the troll to win the game.")
         print("But Beware the Troll Lair. You have a better chance at slaying the troll if you have a SWORD!")
         print("Maneuver the dungeonscape with these commands: North, South, East, and West.")
         print("To add items to your inventory: Answer the prompt Yes of No\n")
@@ -28,7 +28,9 @@ def villian_place(item_list):
 
     if 'Sword' in item_list:
         if damage_roll >= 3:
-            print("You have defeated the troll!")
+            print("\n**You have defeated the troll!**\n")
+            print("\nYOU WIN!\n")
+            exit()
         else:
             print("You have fought and parished!\nBetter Luck Next Time!")
             exit()
@@ -38,12 +40,13 @@ def villian_place(item_list):
 
 def player_status(place, inventory) :
 
-    print("You are in the "+place)
-    print(inventory)
+    print("\nYou are in the "+place)
+    print("Inventory: {}".format(inventory))
 
     if place == 'Troll Lair':
-        print("You're in the Troll's Lair! Ahhh!")
+        print("~~~~~~~~~~~~~~~~~\nThe Troll is here!! Ahhh!\n~~~~~~~~~~~~~~~~~")
         villian_place(inventory)
+
 
 instructions()
 place = 'Entrance'
@@ -61,8 +64,11 @@ while True:
         collect_item = input("Collect the item in this room? Yes/No\n")
         if collect_item == 'Yes':
             inventory.append(item)
+            if len(inventory) == 7:
+                print("\nYOU WIN!\n")
+                exit()
             del rooms[place]['Item']
-
+    #player movement logic
     player_input = input("------------\nEnter your move:\n")
     if player_input in rooms[place]:
         place = rooms[place][player_input]
