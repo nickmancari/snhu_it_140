@@ -2,7 +2,7 @@ from random import randint
 
 rooms = {
         'Entrance' : { 'East' : 'Dungeon Staircase' },
-        'Dungeon Staircase' : { 'North' : 'Stalagmite Cove', 'South' : 'Forge', 'East' : ' Fire Cove',  'West' : 'Entrance',  'Item' : 'Pearl' },
+        'Dungeon Staircase' : { 'North' : 'Stalagmite Cove', 'South' : 'Forge', 'East' : 'Fire Cavern',  'West' : 'Entrance',  'Item' : 'Pearl' },
         'Stalagmite Cove' : { 'South' : 'Dungeon Staircase', 'East' : 'Troll Lair', 'Item' : 'Diamond' },
         'Troll Lair' : { 'West' : 'Stalagmite Cove' },
         'Forge' : { 'North' : 'Dungeon Staircase', 'East' : 'Icy Room', 'West' : 'Ore Mine', 'Item' : 'Sword' },
@@ -31,7 +31,7 @@ def villian_place(item_list):
             print("You have defeated the troll!")
         else:
             print("You have fought and parished!\nBetter Luck Next Time!")
-            exit
+            exit()
         
     else:
         print("You don't have a sword! Run away!")
@@ -56,15 +56,16 @@ while True:
     #chck room for item and enage user on item collection logic
     if 'Item' in rooms[place]:
         item = rooms[place]['Item']
-        print("You see a"+item)
+        print("You see a {}".format(item))
 
         collect_item = input("Collect the item in this room? Yes/No\n")
         if collect_item == 'Yes':
             inventory.append(item)
+            del rooms[place]['Item']
 
     player_input = input("------------\nEnter your move:\n")
     if player_input in rooms[place]:
         place = rooms[place][player_input]
 
     else:
-        print("Not a valid direction")
+        print("\nNot a valid direction\n")
